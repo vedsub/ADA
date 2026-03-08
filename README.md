@@ -1,0 +1,2 @@
+# ADA
+At a high level, the system uses three agents working together. Agent 1 (Schema Selector) finds the relevant tables using vector similarity search and knowledge graph traversal. Agent 2 (SQL Generator) creates queries using context from the KG and memory of past successes and failures. Agent 3 (Executor/Validator) runs the query, validates results, and intelligently routes errors back to the right agent for correction
