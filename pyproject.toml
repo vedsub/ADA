@@ -11,5 +11,9 @@ requires-python = ">=3.11"
 dependencies = [
     "langfuse",
     "openai",
+    "psycopg2-binary",
     "pydantic",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src", "config"]
