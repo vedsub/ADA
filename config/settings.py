@@ -120,3 +120,35 @@ class DatabaseConfig:
 
     def __repr__(self) -> str:  # never leak the password in repr
         return self.safe_repr()
+
+
+@dataclass(frozen=True)
+class ChromaConfig:
+    """
+    Configuration for the Chroma persistent vector store.
+
+    Environment variable
+    --------------------
+    CHROMA_PERSIST_DIR   Path to the directory where Chroma stores its data.
+                         (default: ``./chroma_db``)
+    """
+
+    persist_directory: str = "./chroma_db"
+
+    # ------------------------------------------------------------------ #
+    # Factory                                                              #
+    # ------------------------------------------------------------------ #
+
+    @classmethod
+    def from_env(cls) -> "ChromaConfig":
+        """Build a ChromaConfig from environment variables."""
+        return cls(
+            persist_directory=os.getenv("CHROMA_PERSIST_DIR", "./chroma_db").strip(),
+        )
+
+    # ------------------------------------------------------------------ #
+    # Helpers                                                              #
+    # ------------------------------------------------------------------ #
+
+    def __repr__(self) -> str:
+        return f"ChromaConfig(persist_directory={self.persist_directory!r})"
