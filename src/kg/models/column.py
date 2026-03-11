@@ -26,6 +26,7 @@ class Column(BaseModel):
     cardinality: Optional[str] = None  # low, medium, high
     null_percentage: Optional[float] = None
     is_pii: bool = False
+    embedding: Optional[List[float]] = None  # text-embedding-3-small vector (1536-d)
 
     class Config:
         frozen = False

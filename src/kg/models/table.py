@@ -22,6 +22,7 @@ class Table(BaseModel):
     description: Optional[str] = None
     business_domain: Optional[str] = None
     typical_use_cases: Optional[List[str]] = None
+    embedding: Optional[List[float]] = None  # text-embedding-3-small vector (1536-d)
 
     columns: Dict[str, "Column"] = Field(
         default_factory=dict
