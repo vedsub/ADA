@@ -9,6 +9,7 @@ description = "Agentic database assistant"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "chromadb>=1.5.5",
     "langfuse",
     "openai",
     "psycopg2-binary",
